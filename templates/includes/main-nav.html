@@ -17,12 +17,12 @@
                 Launch Company
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="lunch-link">
-                <a href="" class="dropdown-item">NASA</a>
-                <a href="" class="dropdown-item">Space X</a>
-                <a href="" class="dropdown-item">Rocket Lab</a>
-                <a href="" class="dropdown-item">ESA</a>
-                <a href="" class="dropdown-item">Blue Origin</a>
-                <a href="" class="dropdown-item">All Launch Company</a>
+                <a href="{% url 'products' %}?category=nasa" class="dropdown-item">NASA</a>
+                <a href="{% url 'products' %}?category=spacex" class="dropdown-item">Space X</a>
+                <a href="{% url 'products' %}?category=rocketlab" class="dropdown-item">Rocket Lab</a>
+                <a href="{% url 'products' %}?category=esa" class="dropdown-item">ESA</a>
+                <a href="{% url 'products' %}?category=blueorigin" class="dropdown-item">Blue Origin</a>
+                <a href="{% url 'products' %}?category=nasa,spacex,rocketlab,esa,blueorigin" class="dropdown-item">All Launch Company</a>
             </div>
         </li>
 
@@ -31,10 +31,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
