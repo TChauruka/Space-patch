@@ -1,1 +1,1 @@
-web: gunicorn space-patch.wsgi:application
+web: gunicorn space_patch.wsgi:application
