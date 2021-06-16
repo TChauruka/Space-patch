@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Product, Category
 from .forms import ProductForm
 
@@ -24,10 +25,8 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-            
             if sortkey == 'category':
                 sortkey = 'category__name'
-
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -82,9 +81,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
@@ -96,6 +95,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -124,6 +124,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):
