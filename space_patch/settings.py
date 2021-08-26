@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY','7d51hdm5fzj$ldknra@#eyb#@_w(4#8$@@nzl9iqtg0je%!*ad')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG =  True #'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['space-patch.herokuapp.com','localhost']
 
@@ -125,7 +125,6 @@ AUTHENTICATION_BACKENDS = [
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    
 ]
 
 SITE_ID = 1
