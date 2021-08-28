@@ -6,6 +6,8 @@ class Post(models.Model):
     slug = models.SlugField()
     intro = models.TextField()
     body = models.TextField()
+    image = models.ImageField(null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:

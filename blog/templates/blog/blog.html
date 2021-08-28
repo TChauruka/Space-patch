@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="container align-centre">
   <div class="row">
     <div class="col text-center mt-3">
       <h2 class="logo-font">Blog</h2>
@@ -19,14 +19,19 @@
     </div>
   </div>
   {% for post in posts %}
-  <div class="row">
-    <div class="post block">
-      <h2 class="subtitle">
-        {{ post.title }}
-      </h2>
-      <small>Posted at {{ post.date_added }}</small>
-      <p>{{ post.intro }}</p>
-      <a href="{% url 'post_detail' post.slug %}">Readmore</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.intro }}</p>
+            <p class="card-text"><small class="text-muted">Posted at {{ post.date_added }}</small></p>
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Continue reading</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   {% endfor%}

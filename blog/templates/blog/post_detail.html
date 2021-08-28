@@ -12,12 +12,15 @@
 
 {% block content %}
   <div class="overlay"></div>
-  <h1 class="title">{{ post.title }}</h1>
-
-  <small>{{ post.date_added }}</small>
-
-  <p><strong>{{ post.intro }}</strong></p>
-
-  <p>{{ post.body }}</p>
-
+  <div class="row ">
+      <div class="col-md-6">
+          <div class="container">
+              <h2 class="blog-post-title">{{ post.title }}</h2>
+              <p class="blog-post-meta">{{ post.date_added }}</p>
+              <p><strong>{{ post.intro }}</strong></p>
+              <p>{{ post.body }}</p>
+          </div>
+      </div>
+  </div>
+ 
 {% endblock %}
