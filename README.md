@@ -78,6 +78,16 @@ The three main colors were used throughout this project.
 
 ## Wireframes
 
+- [Home](https://ibb.co/4VbS8GV)
+- [Products](https://ibb.co/rmFRNRT)
+- [Profile](https://ibb.co/xjhnwhy)
+- [Blog](https://ibb.co/7G09K9h)
+- [Blog Deatils](https://ibb.co/HKFnGfs)
+- [Product Detail](https://ibb.co/BzYKRcH)
+- [Bag](https://ibb.co/hYzZtkC)
+- [Toast](https://ibb.co/sQdNMhJ)
+
+
 ## Current Features
 
 ###### Feature 1 - Home page
