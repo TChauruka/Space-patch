@@ -14,6 +14,7 @@ class Post(models.Model):
         ordering = ['-date_added']
 
 class Comment(models.Model):
+    skd = models.CharField(max_length=254, null=True, blank=True)
     post = models.ForeignKey(Post, related_name='comments',
                              on_delete=models.CASCADE)
     name = models.CharField( max_length=255)
