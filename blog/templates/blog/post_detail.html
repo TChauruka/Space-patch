@@ -32,11 +32,16 @@
                   <div class="media-content">
                       <div class="content">
                           <p>
-                              <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                              <strong>{{ comment.name }}</strong> - <small>{{ comment.date_added }}</small>
                               <br>
                               {{ comment.body }}
                           </p>
                       </div>
+                      {% if request.user.is_superuser %}
+                      <small class="ml-3">
+                          <a class="text-danger" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                      </small>
+                      {% endif %}
                   </div>
               </article>
               {% empty %}
@@ -56,7 +61,7 @@
                           {% csrf_token %}
                           {% for field in form %}
 
-                            {{ field | as_crispy_field }}
+                          {{ field | as_crispy_field }}
 
                           {% endfor %}
                           <div class="field">

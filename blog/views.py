@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
-from .models import Post
+from .models import Post, Comment
 
 
 def blog(request):
@@ -27,3 +29,14 @@ def post_detail(request, slug):
     return render(request, 'blog/post_detail.html', {'post': post, 'form':form })
 
 
+@login_required
+def delete_comment(request, comment_id):
+    """ Delete comment from blog """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    messages.success(request, 'Comment deleted!')
+    return redirect(reverse('blog'))

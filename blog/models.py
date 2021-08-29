@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Post(models.Model):
+    id= models.AutoField(primary_key=True)
     title = models.CharField( max_length=255)
     slug = models.SlugField()
     intro = models.TextField()
@@ -14,6 +15,7 @@ class Post(models.Model):
         ordering = ['-date_added']
 
 class Comment(models.Model):
+    id = models.AutoField(primary_key=True)
     skd = models.CharField(max_length=254, null=True, blank=True)
     post = models.ForeignKey(Post, related_name='comments',
                              on_delete=models.CASCADE)
