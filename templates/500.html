@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<!-- 500 Section -->
+<div class="container py-4 text-center">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">500 - Internal Server Error</h1>
+            <p class="col-md-8 fs-4">Sorry, the server encountered an internal error or misconfiguration and was unable to complete your request.</p>
+            <p>If you would like to keep navigating on our website please click the below button to get back to the home page.</p>
+            <div class="text-center mt-5">
+                <a href="{% url 'home' %}" class="btn btn-dark">Go to Homepage</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
