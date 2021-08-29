@@ -13,7 +13,7 @@ def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
 
     if request.method =='POST':
-        form = CommentForm(request.Post)
+        form = CommentForm(request.POST)
 
         if form.is_valid():
             comment = form.save(commit=False)
